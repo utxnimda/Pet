@@ -1,0 +1,74 @@
+{
+  "initial": {
+    "model": "classic",
+    "speechEnabled": true,
+    "hasFishApiKey": false,
+    "source": "../assets/animations/classic-idle.webp",
+    "loaded": true
+  },
+  "animations": [
+    {
+      "file": "classic-idle.webp",
+      "bytes": 1692830,
+      "hasAnimationHeader": true,
+      "frameCount": 88,
+      "hasAlphaFlag": true
+    },
+    {
+      "file": "classic-sleep.webp",
+      "bytes": 2280704,
+      "hasAnimationHeader": true,
+      "frameCount": 118,
+      "hasAlphaFlag": true
+    },
+    {
+      "file": "classic-wave.webp",
+      "bytes": 916860,
+      "hasAnimationHeader": true,
+      "frameCount": 48,
+      "hasAlphaFlag": true
+    },
+    {
+      "file": "duck-idle.webp",
+      "bytes": 1622796,
+      "hasAnimationHeader": true,
+      "frameCount": 88,
+      "hasAlphaFlag": true
+    },
+    {
+      "file": "duck-sleep.webp",
+      "bytes": 2421270,
+      "hasAnimationHeader": true,
+      "frameCount": 118,
+      "hasAlphaFlag": true
+    },
+    {
+      "file": "duck-wave.webp",
+      "bytes": 912588,
+      "hasAnimationHeader": true,
+      "frameCount": 48,
+      "hasAlphaFlag": true
+    }
+  ],
+  "idleFramesChanged": true,
+  "idleFrameA": "E:\\Workspace\\Fun\\Pet\\v3\\test-output\\idle-frame-a.png",
+  "idleFrameB": "E:\\Workspace\\Fun\\Pet\\v3\\test-output\\idle-frame-b.png",
+  "clickReaction": {
+    "bubbleVisible": true,
+    "bubbleText": "再摸一下也可以哦",
+    "voiceState": "voice-status playing",
+    "talking": true,
+    "audioPlaying": true,
+    "source": "../assets/animations/classic-wave.webp"
+  },
+  "duckWave": {
+    "model": "duck",
+    "bubbleText": "嗨～见到你真好！",
+    "voiceState": "voice-status playing",
+    "talking": true,
+    "audioPlaying": true,
+    "source": "../assets/animations/duck-wave.webp",
+    "loaded": true
+  },
+  "duckScreenshot": "E:\\Workspace\\Fun\\Pet\\v3\\test-output\\duck-wave.png"
+}

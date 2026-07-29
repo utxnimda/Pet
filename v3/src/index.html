@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta name="color-scheme" content="light" />
+    <title>薄荷小陪伴</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="stage" aria-label="薄荷小陪伴">
+      <div id="speech-bubble" class="speech-bubble" aria-live="polite">
+        <span id="speech-text">今天也要开心呀</span>
+        <i aria-hidden="true"></i>
+      </div>
+
+      <div id="voice-status" class="voice-status" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+
+      <div id="particle-layer" class="particle-layer" aria-hidden="true"></div>
+
+      <div
+        id="pet"
+        class="pet"
+        data-interactive
+        role="button"
+        tabindex="0"
+        aria-label="摸摸薄荷小陪伴"
+        title="拖动我 · 点击互动 · 右键菜单"
+      >
+        <div class="sleep-cloud" aria-hidden="true">
+          <span>z</span><span>Z</span><span>z</span>
+        </div>
+        <img
+          id="pet-image"
+          src="../assets/pet.png"
+          alt=""
+          draggable="false"
+        />
+        <div class="ground-glow" aria-hidden="true"></div>
+      </div>
+
+      <div id="first-hint" class="first-hint">
+        拖动 · 点击互动 · 右键切角色和设置声音
+      </div>
+    </main>
+
+    <script src="./characters.js"></script>
+    <script src="./renderer.js"></script>
+  </body>
+</html>

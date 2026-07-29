@@ -1,0 +1,81 @@
+{
+  "generatedAt": "2026-07-29T09:26:49.627Z",
+  "provider": "Fish Audio",
+  "endpoint": "https://api.fish.audio/v1/tts",
+  "backend": "s2-pro",
+  "referenceId": "af09f6d5c47545b69dc8bb39d19ce0af",
+  "files": [
+    {
+      "id": "discovered",
+      "text": "嘿嘿，被你发现啦！",
+      "filename": "01-discovered.mp3",
+      "bytes": 30092
+    },
+    {
+      "id": "energetic",
+      "text": "今天也要元气满满！",
+      "filename": "02-energetic.mp3",
+      "bytes": 30092
+    },
+    {
+      "id": "pat-again",
+      "text": "再摸一下也可以哦。",
+      "filename": "03-pat-again.mp3",
+      "bytes": 24658
+    },
+    {
+      "id": "stay-with-you",
+      "text": "我会乖乖陪着你的。",
+      "filename": "04-stay-with-you.mp3",
+      "bytes": 27166
+    },
+    {
+      "id": "drink-water",
+      "text": "休息一下，喝口水吧。",
+      "filename": "05-drink-water.mp3",
+      "bytes": 29256
+    },
+    {
+      "id": "patrol-ok",
+      "text": "桌面巡逻中！一切正常。",
+      "filename": "06-patrol-ok.mp3",
+      "bytes": 44720
+    },
+    {
+      "id": "hello-wave",
+      "text": "嗨！见到你真好！",
+      "filename": "07-hello-wave.mp3",
+      "bytes": 30928
+    },
+    {
+      "id": "take-off",
+      "text": "起飞！",
+      "filename": "08-take-off.mp3",
+      "bytes": 13791
+    },
+    {
+      "id": "good-night",
+      "text": "晚安啦，做个好梦。",
+      "filename": "09-good-night.mp3",
+      "bytes": 30092
+    },
+    {
+      "id": "good-morning",
+      "text": "早呀！我醒啦。",
+      "filename": "10-good-morning.mp3",
+      "bytes": 36779
+    },
+    {
+      "id": "fully-charged",
+      "text": "充满电，继续陪你！",
+      "filename": "11-fully-charged.mp3",
+      "bytes": 30928
+    },
+    {
+      "id": "duck-arrived",
+      "text": "小鸭也来陪你啦！",
+      "filename": "12-duck-arrived.mp3",
+      "bytes": 26330
+    }
+  ]
+}

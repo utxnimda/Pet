@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>角色与语音设置</title>
+    <link rel="stylesheet" href="./settings.css" />
+  </head>
+  <body>
+    <main class="settings-shell">
+      <header class="hero">
+        <div class="hero-icon">♪</div>
+        <div>
+          <p class="eyebrow">MINT PET · 1.1</p>
+          <h1>角色与语音</h1>
+          <p>选择形象、试听声音，并让桌面宠物做动作。</p>
+        </div>
+      </header>
+
+      <div id="notice" class="notice" role="status" aria-live="polite"></div>
+
+      <section class="card">
+        <div class="section-title">
+          <div>
+            <span>角色模型</span>
+            <small>上一版角色仍然保留</small>
+          </div>
+        </div>
+
+        <div id="model-grid" class="model-grid"></div>
+      </section>
+
+      <section class="card voice-card">
+        <div class="section-title">
+          <div>
+            <span>Fish Audio 语音</span>
+            <small>文字会传给 Fish Audio 生成 MP3</small>
+          </div>
+          <label class="switch">
+            <input id="speech-enabled" type="checkbox" />
+            <span></span>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>API Key</span>
+          <input
+            id="api-key"
+            type="password"
+            autocomplete="off"
+            placeholder="输入 Fish Audio API Key"
+          />
+          <small id="api-key-status">尚未保存</small>
+        </label>
+
+        <div class="link-row">
+          <button id="open-api-keys" class="text-button" type="button">
+            获取 API Key ↗
+          </button>
+          <button id="clear-api-key" class="text-button danger" type="button">
+            清除已保存 Key
+          </button>
+        </div>
+
+        <label class="field">
+          <span>声音模型 ID</span>
+          <input id="voice-model-id" type="text" spellcheck="false" />
+          <small>
+            当前使用：
+            <button id="open-voice-model" class="inline-link" type="button">
+              af09f6…ce0af ↗
+            </button>
+          </small>
+        </label>
+
+        <label class="field">
+          <span>试听文字</span>
+          <textarea id="preview-text" maxlength="180">你好呀！今天也要开心哦。</textarea>
+        </label>
+
+        <button id="preview-speech" class="primary-button" type="button">
+          <span class="button-icon">▶</span>
+          <span>保存并试听</span>
+        </button>
+        <p id="voice-result" class="result-text" aria-live="polite"></p>
+      </section>
+
+      <section class="card">
+        <div class="section-title">
+          <div>
+            <span>动作测试</span>
+            <small>新角色会切换到对应姿态</small>
+          </div>
+        </div>
+
+        <div class="action-grid">
+          <button type="button" data-action="wave">👋 挥手</button>
+          <button type="button" data-action="jump">✨ 跳跃</button>
+          <button type="button" data-action="sleep">☾ 睡觉</button>
+          <button type="button" data-action="wake">☀ 醒来</button>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>API Key 使用 Windows 安全存储加密，不会传给渲染页面。</p>
+        <button id="save-settings" class="save-button" type="button">
+          保存设置
+        </button>
+      </footer>
+    </main>
+
+    <script src="./characters.js"></script>
+    <script src="./settings.js"></script>
+  </body>
+</html>

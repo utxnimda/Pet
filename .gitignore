@@ -1,0 +1,14 @@
+node_modules/
+release/
+dist/
+tmp/
+.tools/
+extracted-audio/
+.env
+.env.*
+!.env.example
+settings.json
+*.key
+*.pem
+*.log
+.DS_Store

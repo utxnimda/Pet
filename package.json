@@ -1,0 +1,48 @@
+{
+  "name": "mint-desktop-pet",
+  "version": "1.0.0",
+  "description": "A tiny desktop companion inspired by the character in the supplied video.",
+  "main": "main.js",
+  "author": "Codex",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "check": "node --check main.js && node --check preload.js && node --check src/renderer.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^37.2.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "fun.pet.mintcompanion",
+    "productName": "薄荷小陪伴",
+    "asar": true,
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "assets/pet.png",
+      "assets/icon.png",
+      "assets/icon.ico",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "MintPet-${version}-portable.${ext}"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "motionFiles": [
+    {
+      "name": "run",
+      "sourceFrames": 8,
+      "uniqueSourceFrames": 8,
+      "encodedFrames": 8,
+      "hasAnimationHeader": true,
+      "hasAlphaFlag": true,
+      "bytes": 184002
+    },
+    {
+      "name": "walk",
+      "sourceFrames": 8,
+      "uniqueSourceFrames": 8,
+      "encodedFrames": 8,
+      "hasAnimationHeader": true,
+      "hasAlphaFlag": true,
+      "bytes": 187756
+    },
+    {
+      "name": "sleep",
+      "sourceFrames": 8,
+      "uniqueSourceFrames": 8,
+      "encodedFrames": 8,
+      "hasAnimationHeader": true,
+      "hasAlphaFlag": true,
+      "bytes": 196024
+    }
+  ],
+  "playback": {
+    "run": {
+      "model": "duck",
+      "source": "../assets/motion/duck-run.webp",
+      "loaded": true,
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "screenshotHashes": [
+        "89cb17a60d371d958f91bd9157b52216c1ad3c469321a92086ff8649237f798f",
+        "8bdd2cdfd7912eceec75254cfc49eef48b8afa70f8537017fe0c7cfa2c46fc95",
+        "22c42a3211cf83932be28be5a4d03790e07d249468d1b5b73f058aaeb07b3c83"
+      ],
+      "uniqueScreenshots": 3
+    },
+    "walk": {
+      "model": "duck",
+      "source": "../assets/motion/duck-walk.webp",
+      "loaded": true,
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "screenshotHashes": [
+        "c5f7683f63b2a89b26cc4d543ee0aaf5e5212be79bbc440cf0e8e905af50f514",
+        "87c9f906bd411c0e3ee2a71fbfef10f17483bf970a03a2707c1dc48ee4494a90",
+        "f1e41354463fd8997f1f622c6d32b4a7063accff2494ed8182cda12bae148dff"
+      ],
+      "uniqueScreenshots": 3
+    },
+    "sleep": {
+      "model": "duck",
+      "source": "../assets/motion/duck-sleep.webp",
+      "loaded": true,
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "screenshotHashes": [
+        "08892b6476ceba8fc8e24ad12a0cc14243ddcad480fbca110e153296cd817cc0",
+        "5e511b26332b8bff86d63a1efc4b36a944c0a148d11e25241f8a20c2a1d85a7d",
+        "077e4ddc2321b36ed4dd35540a4e4bc18cd221b39269c17cf1c814cb916e56e9"
+      ],
+      "uniqueScreenshots": 3
+    }
+  }
+}
