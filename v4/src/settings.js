@@ -1,5 +1,8 @@
 const modelGrid = document.querySelector('#model-grid');
+const actionSwitches = document.querySelector('#action-switches');
 const speechEnabled = document.querySelector('#speech-enabled');
+const idleMode = document.querySelector('#idle-mode');
+const idleInterval = document.querySelector('#idle-interval');
 const apiKey = document.querySelector('#api-key');
 const apiKeyStatus = document.querySelector('#api-key-status');
 const voiceModelId = document.querySelector('#voice-model-id');
@@ -10,11 +13,21 @@ const saveSettingsButton = document.querySelector('#save-settings');
 const notice = document.querySelector('#notice');
 
 const FISH_API_KEYS_URL = 'https://fish.audio/app/api-keys/';
-const DEFAULT_FISH_VOICE_MODEL_ID = '815acd1baeed4cc987e24e186424ac02';
+const DEFAULT_FISH_VOICE_MODEL_ID = '1a667f2491cd4ac7995645cc4a3747c3';
 const FISH_VOICE_MODEL_URL =
-  'https://fish.audio/zh-CN/app/m/815acd1baeed4cc987e24e186424ac02/';
+  'https://fish.audio/zh-CN/app/m/1a667f2491cd4ac7995645cc4a3747c3/';
+const ACTIONS = [
+  { id: 'idle', label: '电脑前待机', icon: '🖥' },
+  { id: 'walk', label: '走路', icon: '🚶' },
+  { id: 'depressed', label: '低落', icon: '🌧' },
+  { id: 'argue', label: '争辩', icon: '💢' },
+  { id: 'run', label: '跑一圈', icon: '🏃' },
+  { id: 'sleep', label: '睡觉', icon: '☾' }
+];
 
-let selectedModel = 'classic';
+let selectedModel = 'duck';
+let actionEnabled = {};
+let actionAvailable = {};
 let hasSavedApiKey = false;
 let clearApiKey = false;
 let activePreviewAudio = null;
@@ -72,8 +85,93 @@ function renderModels() {
   }
 }
 
+function getEnabledAvailableActions() {
+  return ACTIONS.filter(
+    (action) => actionAvailable[action.id] && actionEnabled[action.id]
+  );
+}
+
+function renderIdleModes(preferredMode) {
+  const enabledActions = getEnabledAvailableActions();
+  const optionValues = enabledActions.map((action) => action.id);
+  idleMode.replaceChildren();
+
+  for (const action of enabledActions) {
+    const option = document.createElement('option');
+    option.value = action.id;
+    option.textContent = action.label;
+    idleMode.appendChild(option);
+  }
+
+  if (enabledActions.length > 1) {
+    const randomOption = document.createElement('option');
+    randomOption.value = 'random';
+    randomOption.textContent = '随机轮换';
+    idleMode.appendChild(randomOption);
+    optionValues.push('random');
+  }
+
+  idleMode.value = optionValues.includes(preferredMode)
+    ? preferredMode
+    : optionValues[0] || 'run';
+  idleInterval.disabled = enabledActions.length <= 1;
+}
+
+function renderActionSwitches() {
+  actionSwitches.replaceChildren();
+
+  for (const action of ACTIONS) {
+    const available = Boolean(actionAvailable[action.id]);
+    const enabled = available && Boolean(actionEnabled[action.id]);
+    const row = document.createElement('div');
+    row.className = 'action-switch-row';
+    row.classList.toggle('unavailable', !available);
+
+    const text = document.createElement('div');
+    text.className = 'action-switch-copy';
+    text.innerHTML = `
+      <strong>${action.icon} ${action.label}</strong>
+      <small>${
+        available
+          ? enabled
+            ? '已开启 · 会显示在右键菜单'
+            : '已关闭 · 不显示在右键菜单'
+          : '资源未就绪 · 暂不可开启'
+      }</small>
+    `;
+
+    const label = document.createElement('label');
+    label.className = 'switch';
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    input.checked = enabled;
+    input.disabled = !available;
+    input.dataset.actionToggle = action.id;
+    const slider = document.createElement('span');
+    label.append(input, slider);
+
+    input.addEventListener('change', () => {
+      actionEnabled[action.id] = input.checked;
+
+      if (getEnabledAvailableActions().length === 0) {
+        actionEnabled[action.id] = true;
+        setNotice('至少需要保留一个已有资源的动作。', true);
+      }
+
+      renderActionSwitches();
+      renderIdleModes(idleMode.value);
+    });
+
+    row.append(text, label);
+    actionSwitches.appendChild(row);
+  }
+}
+
 function applyState(state) {
   selectedModel = state.characterModel || selectedModel;
+  actionEnabled = { ...(state.actionEnabled || {}) };
+  actionAvailable = { ...(state.actionAvailable || {}) };
+  idleInterval.value = String(state.idleIntervalSeconds || 12);
   speechEnabled.checked = Boolean(state.speechEnabled);
   voiceModelId.value =
     state.fishVoiceModelId || DEFAULT_FISH_VOICE_MODEL_ID;
@@ -82,11 +180,16 @@ function applyState(state) {
   apiKey.value = '';
   updateApiKeyStatus();
   renderModels();
+  renderActionSwitches();
+  renderIdleModes(state.idleMode || 'run');
 }
 
 async function saveForm(silent = false) {
   const payload = {
     characterModel: selectedModel,
+    idleMode: idleMode.value,
+    idleIntervalSeconds: Number(idleInterval.value),
+    actionEnabled: { ...actionEnabled },
     speechEnabled: speechEnabled.checked,
     fishVoiceModelId: voiceModelId.value.trim(),
     apiKey: apiKey.value.trim(),
@@ -193,14 +296,14 @@ saveSettingsButton.addEventListener('click', async () => {
   }
 });
 
-document.querySelectorAll('[data-action]').forEach((button) => {
-  button.addEventListener('click', () => {
-    window.petAPI.triggerAction(button.dataset.action);
-  });
-});
-
 window.petAPI.onState((state) => {
-  if (!apiKey.matches(':focus') && !voiceModelId.matches(':focus')) {
+  if (
+    !apiKey.matches(':focus') &&
+    !voiceModelId.matches(':focus') &&
+    !idleMode.matches(':focus') &&
+    !idleInterval.matches(':focus') &&
+    !actionSwitches.contains(document.activeElement)
+  ) {
     applyState(state);
   }
 });

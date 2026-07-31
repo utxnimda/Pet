@@ -2,3 +2,7 @@ node_modules/
 release/
 *.log
 .DS_Store
+.venv-audio/
+scripts/__pycache__/
+assets/generated/
+test-output/

@@ -74,6 +74,46 @@ body {
   transform: translateX(-50%) rotate(45deg);
 }
 
+.argument-caption {
+  position: absolute;
+  z-index: 10;
+  top: 5%;
+  width: max-content;
+  max-width: 46%;
+  padding: 6px 9px 7px;
+  border: 1px solid rgb(255 255 255 / 90%);
+  border-radius: 13px;
+  color: #5b3c45;
+  background: rgb(255 255 255 / 94%);
+  box-shadow: 0 5px 15px rgb(46 54 75 / 22%);
+  font-size: clamp(10px, 3.8vw, 13px);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 150ms ease,
+    transform 180ms ease;
+}
+
+.argument-caption.left {
+  left: 27%;
+  color: #39766a;
+  transform: translate(-50%, 6px) scale(0.92);
+}
+
+.argument-caption.right {
+  left: 73%;
+  color: #7d3940;
+  transform: translate(-50%, 6px) scale(0.92);
+}
+
+.argument-caption.show {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
 .voice-status {
   position: absolute;
   z-index: 9;
@@ -135,7 +175,6 @@ body {
   cursor: grab;
   touch-action: none;
   transform-origin: 50% 94%;
-  animation: breathe 3.6s ease-in-out infinite;
 }
 
 .pet:active {
@@ -165,7 +204,57 @@ body {
 
 .pet img.asset-changing {
   opacity: 0;
-  transform: translateX(-50%) scale(0.96);
+}
+
+.pet[data-action='argue'] img {
+  width: 112%;
+  filter: none;
+}
+
+.pet[data-action='argue']:hover img {
+  filter: none;
+}
+
+.live-status-dot {
+  position: absolute;
+  z-index: 5;
+  top: 14%;
+  right: 9%;
+  width: clamp(8px, 3.2vw, 11px);
+  height: clamp(8px, 3.2vw, 11px);
+  border: 1.5px solid rgb(255 255 255 / 94%);
+  border-radius: 50%;
+  background: #94a3b8;
+  box-shadow:
+    0 1px 4px rgb(15 23 42 / 35%),
+    0 0 0 2px rgb(148 163 184 / 18%);
+  pointer-events: none;
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.live-status-dot[data-state='live'] {
+  background: #22c55e;
+  box-shadow:
+    0 1px 4px rgb(15 23 42 / 35%),
+    0 0 0 3px rgb(34 197 94 / 22%);
+  animation: live-status-pulse 2.1s ease-in-out infinite;
+}
+
+.live-status-dot[data-state='offline'] {
+  background: #ef4444;
+  box-shadow:
+    0 1px 4px rgb(15 23 42 / 35%),
+    0 0 0 2px rgb(239 68 68 / 18%);
+}
+
+.pet[data-action='argue'] .live-status-dot {
+  top: 18%;
+  right: auto;
+  left: 49%;
+  transform: translateX(-50%);
 }
 
 .pet:hover img {
@@ -191,42 +280,6 @@ body {
   filter: blur(3px);
   transform: scaleX(0.9);
   animation: glow 3.6s ease-in-out infinite;
-}
-
-.pet.walking {
-  animation: walk-hop 360ms ease-in-out infinite alternate;
-}
-
-.pet.walking img {
-  animation: walk-sway 360ms ease-in-out infinite alternate;
-}
-
-.pet.facing-left img {
-  transform: translateX(-50%) scaleX(-1);
-}
-
-.pet.react-happy {
-  animation: happy-bounce 680ms cubic-bezier(0.2, 0.8, 0.25, 1);
-}
-
-.pet.react-spin img {
-  animation: tiny-spin 780ms cubic-bezier(0.3, 0.7, 0.2, 1);
-}
-
-.pet.react-shy img {
-  animation: shy-wiggle 620ms ease-in-out;
-}
-
-.pet.react-squish img {
-  animation: squish 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.pet.talking img {
-  animation: talking-bob 360ms ease-in-out infinite alternate;
-}
-
-.pet.sleeping {
-  animation: sleepy-breathe 4.6s ease-in-out infinite;
 }
 
 .pet.sleeping img {
@@ -313,16 +366,6 @@ body {
   animation: hint-in-out 5.4s 1s ease both;
 }
 
-@keyframes breathe {
-  0%,
-  100% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-3px) scale(1.008);
-  }
-}
-
 @keyframes glow {
   0%,
   100% {
@@ -344,103 +387,18 @@ body {
   }
 }
 
-@keyframes walk-hop {
-  from {
-    transform: translateY(0) rotate(-0.6deg);
-  }
-  to {
-    transform: translateY(-5px) rotate(0.6deg);
-  }
-}
-
-@keyframes walk-sway {
-  from {
-    margin-left: -2px;
-  }
-  to {
-    margin-left: 2px;
-  }
-}
-
-@keyframes happy-bounce {
+@keyframes live-status-pulse {
   0%,
   100% {
-    transform: translateY(0) scale(1);
+    box-shadow:
+      0 1px 4px rgb(15 23 42 / 35%),
+      0 0 0 2px rgb(34 197 94 / 18%);
   }
-  32% {
-    transform: translateY(-26px) scale(1.04, 0.98);
-  }
-  58% {
-    transform: translateY(1px) scale(0.96, 1.04);
-  }
-  76% {
-    transform: translateY(-8px) scale(1.01);
-  }
-}
 
-@keyframes tiny-spin {
-  0% {
-    transform: translateX(-50%) rotate(0);
-  }
-  45% {
-    transform: translateX(-50%) rotate(-7deg) scale(1.02);
-  }
-  70% {
-    transform: translateX(-50%) rotate(5deg);
-  }
-  100% {
-    transform: translateX(-50%) rotate(0);
-  }
-}
-
-@keyframes shy-wiggle {
-  0%,
-  100% {
-    transform: translateX(-50%) rotate(0);
-  }
-  20% {
-    transform: translateX(-50%) rotate(-2.5deg);
-  }
-  40% {
-    transform: translateX(-50%) rotate(2.5deg);
-  }
-  60% {
-    transform: translateX(-50%) rotate(-1.5deg);
-  }
-  80% {
-    transform: translateX(-50%) rotate(1.5deg);
-  }
-}
-
-@keyframes squish {
-  0%,
-  100% {
-    transform: translateX(-50%) scale(1);
-  }
-  35% {
-    transform: translateX(-50%) scale(1.08, 0.91);
-  }
-  62% {
-    transform: translateX(-50%) scale(0.96, 1.04);
-  }
-}
-
-@keyframes talking-bob {
-  from {
-    transform: translateX(-50%) translateY(0);
-  }
-  to {
-    transform: translateX(-50%) translateY(-2px);
-  }
-}
-
-@keyframes sleepy-breathe {
-  0%,
-  100% {
-    transform: translateY(5px) rotate(-1deg) scale(1);
-  }
   50% {
-    transform: translateY(7px) rotate(-0.6deg) scale(1.008, 0.994);
+    box-shadow:
+      0 1px 4px rgb(15 23 42 / 35%),
+      0 0 0 5px rgb(34 197 94 / 8%);
   }
 }
 

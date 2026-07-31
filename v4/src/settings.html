@@ -12,9 +12,9 @@
       <header class="hero">
         <div class="hero-icon">♪</div>
         <div>
-          <p class="eyebrow">MINT PET · 1.3</p>
-          <h1>角色与语音</h1>
-          <p>选择形象、试听声音，并让桌面宠物做动作。</p>
+          <p class="eyebrow">MINT PET · v0.1</p>
+          <h1>动作与语音</h1>
+          <p>逐个启用已经准备好的桌宠动作，并配置对应语音。</p>
         </div>
       </header>
 
@@ -23,8 +23,8 @@
       <section class="card">
         <div class="section-title">
           <div>
-            <span>角色模型</span>
-            <small>上一版角色仍然保留</small>
+            <span>当前角色</span>
+            <small>小鸭薄荷 · 已接入电脑前待机与跑步动画</small>
           </div>
         </div>
 
@@ -35,7 +35,7 @@
         <div class="section-title">
           <div>
             <span>气泡语音</span>
-            <small>已知对白播放本地 MP3，新文字可用 Fish Audio</small>
+            <small hidden>已知对白播放本地 MP3，新文字可用 Fish Audio</small>
           </div>
           <label class="switch">
             <input id="speech-enabled" type="checkbox" />
@@ -43,64 +43,87 @@
           </label>
         </div>
 
-        <label class="field">
-          <span>API Key（仅新文字需要）</span>
-          <input
-            id="api-key"
-            type="password"
-            autocomplete="off"
-            placeholder="输入 Fish Audio API Key"
-          />
-          <small id="api-key-status">尚未保存</small>
-        </label>
+        <div hidden>
+          <label class="field">
+            <span>API Key（仅新文字需要）</span>
+            <input
+              id="api-key"
+              type="password"
+              autocomplete="off"
+              placeholder="输入 Fish Audio API Key"
+            />
+            <small id="api-key-status">尚未保存</small>
+          </label>
 
-        <div class="link-row">
-          <button id="open-api-keys" class="text-button" type="button">
-            获取 API Key ↗
-          </button>
-          <button id="clear-api-key" class="text-button danger" type="button">
-            清除已保存 Key
-          </button>
-        </div>
-
-        <label class="field">
-          <span>声音模型 ID</span>
-          <input id="voice-model-id" type="text" spellcheck="false" />
-          <small>
-            当前使用：
-            <button id="open-voice-model" class="inline-link" type="button">
-              af09f6…ce0af ↗
+          <div class="link-row">
+            <button id="open-api-keys" class="text-button" type="button">
+              获取 API Key ↗
             </button>
-          </small>
-        </label>
+            <button id="clear-api-key" class="text-button danger" type="button">
+              清除已保存 Key
+            </button>
+          </div>
 
-        <label class="field">
-          <span>试听文字</span>
-          <textarea id="preview-text" maxlength="180">你好呀！今天也要开心哦。</textarea>
-        </label>
+          <label class="field">
+            <span>声音模型 ID</span>
+            <input id="voice-model-id" type="text" spellcheck="false" />
+            <small>
+              当前使用：
+              <button id="open-voice-model" class="inline-link" type="button">
+                1a667f…7c3 ↗
+              </button>
+            </small>
+          </label>
 
-        <button id="preview-speech" class="primary-button" type="button">
-          <span class="button-icon">▶</span>
-          <span>保存并试听</span>
-        </button>
-        <p id="voice-result" class="result-text" aria-live="polite"></p>
+          <label class="field">
+            <span>试听文字</span>
+            <textarea id="preview-text" maxlength="180">你好呀！今天也要开心哦。</textarea>
+          </label>
+
+          <button id="preview-speech" class="primary-button" type="button">
+            <span class="button-icon">▶</span>
+            <span>保存并试听</span>
+          </button>
+          <p id="voice-result" class="result-text" aria-live="polite"></p>
+        </div>
       </section>
 
       <section class="card">
         <div class="section-title">
           <div>
-            <span>动作测试</span>
-            <small>新角色会切换到对应姿态</small>
+            <span>动作开关</span>
+            <small>关闭后不会出现在右键菜单；缺少资源的动作不可开启</small>
           </div>
         </div>
 
-        <div class="action-grid">
-          <button type="button" data-action="wave">👋 挥手</button>
-          <button type="button" data-action="jump">✨ 跳跃</button>
-          <button type="button" data-action="run">🏃 跑步</button>
-          <button type="button" data-action="sleep">☾ 睡觉</button>
-          <button type="button" data-action="wake">☀ 醒来</button>
+        <div id="action-switches" class="action-switch-list"></div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">
+          <div>
+            <span>一般待机</span>
+            <small>固定一个动作，或按自定义间隔随机切换</small>
+          </div>
         </div>
+
+        <label class="field">
+          <span>待机动作</span>
+          <select id="idle-mode"></select>
+        </label>
+
+        <label class="field">
+          <span>随机切换间隔（秒）</span>
+          <input
+            id="idle-interval"
+            type="number"
+            min="3"
+            max="300"
+            step="1"
+            inputmode="numeric"
+          />
+          <small>仅“随机轮换”使用，可设置 3–300 秒。</small>
+        </label>
       </section>
 
       <footer class="footer">

@@ -1,72 +1,187 @@
 {
+  "publicState": {
+    "alwaysOnTop": true,
+    "size": "small",
+    "sleeping": false,
+    "characterModel": "duck",
+    "idleMode": "argue",
+    "idleIntervalSeconds": 12,
+    "actionEnabled": {
+      "idle": true,
+      "walk": false,
+      "depressed": false,
+      "argue": true,
+      "run": true,
+      "sleep": false
+    },
+    "actionAvailable": {
+      "idle": true,
+      "walk": false,
+      "depressed": false,
+      "argue": true,
+      "run": true,
+      "sleep": false
+    },
+    "speechEnabled": true,
+    "fishVoiceModelId": "1a667f2491cd4ac7995645cc4a3747c3",
+    "hasFishApiKey": true,
+    "liveRoom": {
+      "roomId": "9667590",
+      "ownerName": "阿雅Midori",
+      "roomName": "不小心在梦里播睡着了",
+      "status": "offline",
+      "showStatus": 2,
+      "checkedAt": 1785465362196,
+      "becameLiveAt": null,
+      "error": ""
+    }
+  },
   "motionFiles": [
     {
+      "name": "idle",
+      "encodedFrames": 48,
+      "hasAnimationHeader": true,
+      "hasAlphaFlag": true,
+      "bytes": 11686847
+    },
+    {
+      "name": "argue",
+      "encodedFrames": 48,
+      "hasAnimationHeader": true,
+      "hasAlphaFlag": true,
+      "bytes": 16716137
+    },
+    {
       "name": "run",
-      "sourceFrames": 8,
-      "uniqueSourceFrames": 8,
-      "encodedFrames": 8,
+      "encodedFrames": 48,
       "hasAnimationHeader": true,
       "hasAlphaFlag": true,
-      "bytes": 184002
-    },
-    {
-      "name": "walk",
-      "sourceFrames": 8,
-      "uniqueSourceFrames": 8,
-      "encodedFrames": 8,
-      "hasAnimationHeader": true,
-      "hasAlphaFlag": true,
-      "bytes": 187756
-    },
-    {
-      "name": "sleep",
-      "sourceFrames": 8,
-      "uniqueSourceFrames": 8,
-      "encodedFrames": 8,
-      "hasAnimationHeader": true,
-      "hasAlphaFlag": true,
-      "bytes": 196024
+      "bytes": 8568629
     }
   ],
   "playback": {
+    "idle": {
+      "model": "duck",
+      "source": "../assets/motion/duck-idle.png",
+      "loaded": true,
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "screenshotHashes": [
+        "adc34c12d233d3e851a6e0ee093d101f8934e259d34a496bec534f51eeb66c58",
+        "2610535d63c6ffcac05cb926b0683da080d05bd451c07b2c2d3d9954fcb02959",
+        "cbd2082c7bf5ac75e95c668f51927eaf7d6699006ab696588658f37977995053"
+      ],
+      "uniqueScreenshots": 3
+    },
+    "argue": {
+      "model": "duck",
+      "source": "../assets/motion/duck-argue.png",
+      "loaded": true,
+      "naturalWidth": 512,
+      "naturalHeight": 512,
+      "screenshotHashes": [
+        "766a0d26859c6c15a37898cd52e93a7cbae2b7bc08c4d7c72c1bd54059df3fa1",
+        "a4cc42cfbf441b44b4043e587b8a8388afd0f0561751f91b474340e65223c463",
+        "6abf23e2a8e73c0aec47d0d3bab2f4244ff9b5d6c7d671dbbc737b06e06c994d"
+      ],
+      "uniqueScreenshots": 3
+    },
     "run": {
       "model": "duck",
-      "source": "../assets/motion/duck-run.webp",
+      "source": "../assets/motion/duck-run.png",
       "loaded": true,
       "naturalWidth": 512,
       "naturalHeight": 512,
       "screenshotHashes": [
-        "89cb17a60d371d958f91bd9157b52216c1ad3c469321a92086ff8649237f798f",
-        "8bdd2cdfd7912eceec75254cfc49eef48b8afa70f8537017fe0c7cfa2c46fc95",
-        "22c42a3211cf83932be28be5a4d03790e07d249468d1b5b73f058aaeb07b3c83"
+        "7bbb6978db94d716783cd2a349de46436b9b8c20c62e55119e3f761653522432",
+        "f468a76208a141be8beb8819b5f007bb576894fd02971390b81acb28edb46d09",
+        "3d296390cff83d4a6a7e9aba5939447d6f0e7680c6a6591d6b75837c6ba4fcdf"
       ],
       "uniqueScreenshots": 3
+    }
+  },
+  "interactions": {
+    "configuredIdleMode": "argue",
+    "configuredIdleIntervalSeconds": 12,
+    "fixedIdleAction": "idle",
+    "fixedIdleActionValid": true,
+    "voiceRouting": {
+      "idle": {
+        "globalText": "我在这里陪着你呀。",
+        "globalSource": "../assets/voices/15-global-here.mp3",
+        "globalPoolMatched": true,
+        "actionText": "胖头鱼受死！",
+        "actionSource": "../assets/voices/20-idle-pangtouyu.mp3",
+        "actionPoolMatched": true,
+        "exclusiveActionOnly": false
+      },
+      "argue": {
+        "globalText": "我峰哥也敢吃。",
+        "globalSource": "../assets/voices/21-argue-feng-ge-also.mp3",
+        "globalPoolMatched": false,
+        "actionText": "我峰哥敢吃五斤。",
+        "actionSource": "../assets/voices/22-argue-feng-ge-five-jin.mp3",
+        "actionPoolMatched": true,
+        "exclusiveActionOnly": true
+      },
+      "run": {
+        "globalText": "我在这里陪着你呀。",
+        "globalSource": "../assets/voices/15-global-here.mp3",
+        "globalPoolMatched": true,
+        "actionText": "累死雅宝了。",
+        "actionSource": "../assets/voices/26-run-lap.mp3",
+        "actionPoolMatched": true,
+        "exclusiveActionOnly": false
+      }
+    }
+  },
+  "argumentCaptions": {
+    "firstCaption": {
+      "dialogues": [
+        {
+          "openingText": "我奶哥敢吃屎。",
+          "openingSource": "../assets/voices/23-argue-red-nai-ge-dare.mp3",
+          "text": "我峰哥也敢吃。",
+          "source": "../assets/voices/21-argue-feng-ge-also.mp3"
+        },
+        {
+          "openingText": "我奶哥敢吃三斤。",
+          "openingSource": "../assets/voices/24-argue-red-nai-ge-three-jin.mp3",
+          "text": "我峰哥敢吃五斤。",
+          "source": "../assets/voices/22-argue-feng-ge-five-jin.mp3"
+        }
+      ],
+      "finalVoice": {
+        "text": "枫哥牛逼！",
+        "source": "../assets/voices/25-argue-red-feng-ge-awesome.mp3"
+      },
+      "leftVisible": false,
+      "rightText": "我奶哥敢吃屎。",
+      "rightVisible": true
     },
-    "walk": {
-      "model": "duck",
-      "source": "../assets/motion/duck-walk.webp",
-      "loaded": true,
-      "naturalWidth": 512,
-      "naturalHeight": 512,
-      "screenshotHashes": [
-        "c5f7683f63b2a89b26cc4d543ee0aaf5e5212be79bbc440cf0e8e905af50f514",
-        "87c9f906bd411c0e3ee2a71fbfef10f17483bf970a03a2707c1dc48ee4494a90",
-        "f1e41354463fd8997f1f622c6d32b4a7063accff2494ed8182cda12bae148dff"
-      ],
-      "uniqueScreenshots": 3
+    "replyCaption": {
+      "leftText": "我峰哥也敢吃。",
+      "leftVisible": true,
+      "rightVisible": false
     },
-    "sleep": {
-      "model": "duck",
-      "source": "../assets/motion/duck-sleep.webp",
-      "loaded": true,
-      "naturalWidth": 512,
-      "naturalHeight": 512,
-      "screenshotHashes": [
-        "08892b6476ceba8fc8e24ad12a0cc14243ddcad480fbca110e153296cd817cc0",
-        "5e511b26332b8bff86d63a1efc4b36a944c0a148d11e25241f8a20c2a1d85a7d",
-        "077e4ddc2321b36ed4dd35540a4e4bc18cd221b39269c17cf1c814cb916e56e9"
-      ],
-      "uniqueScreenshots": 3
+    "secondOpeningCaption": {
+      "leftVisible": false,
+      "rightText": "我奶哥敢吃三斤。",
+      "rightVisible": true
+    },
+    "secondReplyCaption": {
+      "leftText": "我峰哥敢吃五斤。",
+      "leftVisible": true,
+      "rightVisible": false
+    },
+    "finalOpeningCaption": {
+      "leftVisible": false,
+      "rightText": "枫哥牛逼！",
+      "rightVisible": true
+    },
+    "cleared": {
+      "leftVisible": false,
+      "rightVisible": false
     }
   }
 }

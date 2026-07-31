@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-07-31T01:10:49.746Z",
+  "model": "s2-pro",
+  "referenceId": "1a667f2491cd4ac7995645cc4a3747c3",
+  "speaker": "left/green-haired character (雅宝)",
+  "unvoicedSpeaker": "right/red-dressed character",
+  "argueActionEnabled": true,
+  "voices": [
+    {
+      "openingText": "我奶哥敢吃屎。",
+      "text": "我峰哥也敢吃。",
+      "cue": "[defiant, competitive, emphatic, cute]",
+      "expectedDirection": "阿雅不服输地立刻接话，重读“我峰哥”和“也敢吃”，语气短促有冲劲。",
+      "output": "assets/voices/21-argue-feng-ge-also.mp3",
+      "synthesisText": "[defiant, competitive, emphatic, cute] 我峰哥也敢吃。",
+      "bytes": 25494,
+      "cached": false
+    },
+    {
+      "openingText": "我奶哥敢吃三斤。",
+      "text": "我峰哥敢吃五斤。",
+      "cue": "[boastful, competitive, triumphant, cute]",
+      "expectedDirection": "阿雅带着夸耀和胜负欲回击，强调“五斤”，结尾笃定。",
+      "output": "assets/voices/22-argue-feng-ge-five-jin.mp3",
+      "synthesisText": "[boastful, competitive, triumphant, cute] 我峰哥敢吃五斤。",
+      "bytes": 25494,
+      "cached": false
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-07-31T02:31:40.765Z",
+  "model": "s2-pro",
+  "referenceId": "09d7bda515cd4b3cbb21613a3a6bab88",
+  "speaker": "right/red-dressed character",
+  "voices": [
+    {
+      "text": "我奶哥敢吃屎。",
+      "cue": "[argumentative, defiant, sharp, emphatic, fast-paced]",
+      "expectedDirection": "红衣角色先发难，语气挑衅、短促，重读“我奶哥”和“敢”。",
+      "output": "assets/voices/23-argue-red-nai-ge-dare.mp3",
+      "synthesisText": "[argumentative, defiant, sharp, emphatic, fast-paced] 我奶哥敢吃屎。",
+      "actualReferenceId": "09d7bda515cd4b3cbb21613a3a6bab88",
+      "bytes": 22568,
+      "cached": false
+    },
+    {
+      "text": "我奶哥敢吃三斤。",
+      "cue": "[boastful, taunting, competitive, emphatic, fast-paced]",
+      "expectedDirection": "红衣角色继续抬杠，带夸耀和挑衅感，重读“三斤”。",
+      "output": "assets/voices/24-argue-red-nai-ge-three-jin.mp3",
+      "synthesisText": "[boastful, taunting, competitive, emphatic, fast-paced] 我奶哥敢吃三斤。",
+      "actualReferenceId": "09d7bda515cd4b3cbb21613a3a6bab88",
+      "bytes": 30092,
+      "cached": false
+    },
+    {
+      "text": "枫哥牛逼！",
+      "cue": "[excited, impressed, emphatic, bright, punchy]",
+      "expectedDirection": "红衣角色最后突然高声称赞，短促有力地重读“牛逼”。",
+      "output": "assets/voices/25-argue-red-feng-ge-awesome.mp3",
+      "synthesisText": "[excited, impressed, emphatic, bright, punchy] 枫哥牛逼！",
+      "actualReferenceId": "09d7bda515cd4b3cbb21613a3a6bab88",
+      "bytes": 19643,
+      "cached": false
+    }
+  ]
+}

@@ -7,15 +7,26 @@
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     />
     <meta name="color-scheme" content="light" />
-    <title>薄荷小陪伴</title>
+    <title>小小雅鹅</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main id="stage" aria-label="薄荷小陪伴">
+    <main id="stage" aria-label="小小雅鹅">
       <div id="speech-bubble" class="speech-bubble" aria-live="polite">
         <span id="speech-text">今天也要开心呀</span>
         <i aria-hidden="true"></i>
       </div>
+
+      <div
+        id="argue-caption-left"
+        class="argument-caption left"
+        aria-live="polite"
+      ></div>
+      <div
+        id="argue-caption-right"
+        class="argument-caption right"
+        aria-live="polite"
+      ></div>
 
       <div id="voice-status" class="voice-status" aria-hidden="true">
         <span></span><span></span><span></span>
@@ -29,7 +40,7 @@
         data-interactive
         role="button"
         tabindex="0"
-        aria-label="摸摸薄荷小陪伴"
+        aria-label="摸摸小小雅鹅"
         title="拖动我 · 点击互动 · 右键菜单"
       >
         <div class="sleep-cloud" aria-hidden="true">
@@ -37,10 +48,18 @@
         </div>
         <img
           id="pet-image"
-          src="../assets/pet.png"
+          src="../assets/motion/duck-idle.png"
           alt=""
           draggable="false"
         />
+        <span
+          id="live-status-dot"
+          class="live-status-dot"
+          data-state="unknown"
+          role="status"
+          aria-live="polite"
+          aria-label="阿雅Midori 直播状态获取中"
+        ></span>
         <div class="ground-glow" aria-hidden="true"></div>
       </div>
 

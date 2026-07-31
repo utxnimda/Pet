@@ -3,8 +3,8 @@ const { contextBridge, ipcRenderer } = require('electron');
 contextBridge.exposeInMainWorld('petAPI', {
   getState: () => ipcRenderer.invoke('pet:get-state'),
   saveSettings: (settings) => ipcRenderer.invoke('settings:save', settings),
-  synthesizeSpeech: (text, preview = false) =>
-    ipcRenderer.invoke('speech:synthesize', { text, preview }),
+  synthesizeSpeech: (text, preview = false, referenceId = '') =>
+    ipcRenderer.invoke('speech:synthesize', { text, preview, referenceId }),
   openExternal: (url) => ipcRenderer.invoke('external:open', url),
   startDrag: (point) => ipcRenderer.send('pet:drag-start', point),
   moveDrag: (point) => ipcRenderer.send('pet:drag-move', point),
@@ -20,8 +20,8 @@ contextBridge.exposeInMainWorld('petAPI', {
   onCommand: (callback) => {
     ipcRenderer.on('pet:command', (_event, command) => callback(command));
   },
-  onMotion: (callback) => {
-    ipcRenderer.on('pet:motion', (_event, motion) => callback(motion));
+  onLiveStatus: (callback) => {
+    ipcRenderer.on('live:status', (_event, status) => callback(status));
   },
   onSettingsNotice: (callback) => {
     ipcRenderer.on('settings:notice', (_event, notice) => callback(notice));

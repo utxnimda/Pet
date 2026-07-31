@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-07-31T00:45:44.238Z",
+  "model": "s2-pro",
+  "referenceId": "1a667f2491cd4ac7995645cc4a3747c3",
+  "voices": [
+    {
+      "text": "枫哥牛逼！",
+      "cue": "[excited, admiring, energetic emphasis]",
+      "expectedDirection": "兴奋崇拜，语速稍快，重读“牛逼”，结尾干脆上扬。",
+      "output": "assets/voices/18-idle-feng-ge-awesome.mp3",
+      "synthesisText": "[excited, admiring, energetic emphasis] 枫哥牛逼！",
+      "bytes": 28420,
+      "cached": false
+    },
+    {
+      "text": "请勿打扰。",
+      "cue": "[calm, cool, firm, slightly impatient]",
+      "expectedDirection": "冷静克制、略显不耐烦，语速偏慢，像专注工作时的简短提醒。",
+      "output": "assets/voices/19-idle-do-not-disturb.mp3",
+      "synthesisText": "[calm, cool, firm, slightly impatient] 请勿打扰。",
+      "bytes": 20897,
+      "cached": true
+    },
+    {
+      "text": "胖头鱼受死！",
+      "cue": "[playful challenge, confident, energetic]",
+      "expectedDirection": "带玩笑感的挑衅，语气自信有冲劲，不演成真正愤怒。",
+      "output": "assets/voices/20-idle-pangtouyu.mp3",
+      "synthesisText": "[playful challenge, confident, energetic] 胖头鱼受死！",
+      "bytes": 30092,
+      "cached": true
+    }
+  ]
+}
